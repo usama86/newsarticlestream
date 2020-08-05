@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Switch, Route } from 'react-router-dom';
+import MainPage from './Ui/MainPage';
+import DetailPage from './Ui/DetailPage'
+import Grid from '@material-ui/core/Grid';
+import Header from './Components/Header';
+const App=()=> {
+	return (
+		<React.Fragment>
+			<Grid container>       
+			<Grid item xs={12}>
+            	<Header/>
+            </Grid>
+			</Grid>
+			
+				<Switch>
+					<Route exact path="/" component={MainPage} />
+					<Route exact path="/details" component={DetailPage} />
+					{/* <Route
+					 path="/patientRegistration" component={PatientRegistration} /> */}
+					 {/* <Route 
+					 path="/part2" component={PRPart2} />
+					  */}
+				</Switch>
+		</React.Fragment>
+	);
 }
 
 export default App;
